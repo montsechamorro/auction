@@ -61,10 +61,10 @@ public class Product
     }
 
     /**
-     * Restock with the given amount of this product.
-     * The current quantity is incremented by the given amount.
-     * @param amount The number of new items added to the stock.
-     *               This must be greater than zero.
+     * Restock with the given amount of this product.              //Reabastecer con la cantidad dada de este producto.
+     * The current quantity is incremented by the given amount.    //La cantidad  se incrementa en la cantidad dada.
+     * @param amount The number of new items added to the stock.   //cantidad  de nuevos elementos añadidos al stock.
+     *               This must be greater than zero.               //Esto debe ser mayor que cero.
      */
     public void increaseQuantity(int amount)
     {
@@ -80,8 +80,8 @@ public class Product
     }
 
     /**
-     * Sell one of these products.
-     * An error is reported if there appears to be no stock.
+     * Sell one of these products.                                 //Vender uno de estos productos.
+     * An error is reported if there appears to be no stock.      //Se ha informado de un error si no parece haber ninguna acción
      */
     public void sellOne()
     {
