@@ -47,15 +47,19 @@ public class StockManager
     public Product findProduct(int id)
     {
         Product buscado = null;
+        boolean aux = false;
+        int acum = 0;
 
-        for (Product producto : stock)
-        {
+        while ((aux  == false) && ( acum < stock.size()))
+        {      
+            Product producto = stock.get(0);
+
             if (id == producto.getID())
             {
                 buscado = producto;
-
+                aux = true;
             }
-
+            acum++;           
         }
         return buscado;
     }
@@ -80,6 +84,7 @@ public class StockManager
         }
         return cantidad;
     }
+
     /**
      * Print details of all the products.       //Imprimir detalles de todos los productos.
      */
