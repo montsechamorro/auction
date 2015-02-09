@@ -37,62 +37,74 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
-    }
-
-    /**
-     * Try to find a product in the stock with the given id.          //Trate de encontrar un producto en la acción con el id indicado.
-     * @return The identified product, or null if there is none       //El producto identificado, o null si no hay ninguno
-          * with a matching ID.                                                           // Con un ID coincidente.
-     */
-    public Product findProduct(int id)
-    {
-        Product buscado = null;
-        boolean aux = false;
-        int acum = 0;
-
-        while ((aux  == false) && ( acum < stock.size()))
-        {      
-            Product producto = stock.get(0);
-
-            if (id == producto.getID())
+        for (Product producto : stock)
+        {
+            if ( id == producto.getID())
             {
-                buscado = producto;
-                aux = true;
+                producto.increaseQuantity(amount);
             }
-            acum++;           
-        }
-        return buscado;
-    }
-
-    /**
-     * Locate a product with the given ID, and return how     //Busque un producto con el ID dado, y devolver cuántos de este artículo están en stock
-     * many of this item are in stock. If the ID does not     //Si la identificación no coincide con ningún producto, devolver cero.
-     * match any product, return zero.
-     * @param id The ID of the product.
-     * @return The quantity of the given product in stock.    //La cantidad del producto dada en stock
-     */
-    public int numberInStock(int id)
-    {
-        int cantidad = 0;
-
-        for (Product producto : stock)
-        {
-            if (id == producto.getID())
+            else
             {
-                cantidad = producto.getQuantity();
-            }            
+                System.out.println("No existe este producto");
+
+            }
         }
-        return cantidad;
     }
 
-    /**
-     * Print details of all the products.       //Imprimir detalles de todos los productos.
-     */
-    public void printProductDetails()
-    {
-        for (Product producto : stock)
+        /**
+         * Try to find a product in the stock with the given id.          //Trate de encontrar un producto en la acción con el id indicado.
+         * @return The identified product, or null if there is none       //El producto identificado, o null si no hay ninguno
+              * with a matching ID.                                                           // Con un ID coincidente.
+         */
+        public Product findProduct(int id)
         {
-            System.out.println("Detalles de los productos: " + producto.toString());
+            Product buscado = null;
+            boolean aux = false;
+            int acum = 0;
+
+            while ((aux  == false) && ( acum < stock.size()))
+            {      
+                Product producto = stock.get(0);
+
+                if (id == producto.getID())
+                {
+                    buscado = producto;
+                    aux = true;
+                }
+                acum++;           
+            }
+            return buscado;
+        }
+
+        /**
+         * Locate a product with the given ID, and return how     //Busque un producto con el ID dado, y devolver cuántos de este artículo están en stock
+         * many of this item are in stock. If the ID does not     //Si la identificación no coincide con ningún producto, devolver cero.
+         * match any product, return zero.
+         * @param id The ID of the product.
+         * @return The quantity of the given product in stock.    //La cantidad del producto dada en stock
+         */
+        public int numberInStock(int id)
+        {
+            int cantidad = 0;
+
+            for (Product producto : stock)
+            {
+                if (id == producto.getID())
+                {
+                    cantidad = producto.getQuantity();
+                }            
+            }
+            return cantidad;
+        }
+
+        /**
+         * Print details of all the products.       //Imprimir detalles de todos los productos.
+         */
+        public void printProductDetails()
+        {
+            for (Product producto : stock)
+            {
+                System.out.println("Detalles de los productos: " + producto.toString());
+            }
         }
     }
-}
