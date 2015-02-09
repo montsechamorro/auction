@@ -55,7 +55,7 @@ public class StockManager
                 buscado = producto;
 
             }
-            
+
         }
         return buscado;
     }
@@ -69,9 +69,17 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        return 0;
-    }
+        int cantidad = 0;
 
+        for (Product producto : stock)
+        {
+            if (id == producto.getID())
+            {
+                cantidad = producto.getQuantity();
+            }            
+        }
+        return cantidad;
+    }
     /**
      * Print details of all the products.       //Imprimir detalles de todos los productos.
      */
